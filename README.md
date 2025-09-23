@@ -17,7 +17,7 @@ pip install .
 ```python
 from mrp_calculo import executar
 
-df = executar(
+df,notas = executar(
     caminho_csv_kobo="dados.csv",
     caminho_xlsx_variaveis="dicionario.xlsx",
     coluna_atual="cod_mare",
