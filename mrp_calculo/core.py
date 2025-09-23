@@ -11,14 +11,14 @@ import numpy as np
 from types import SimpleNamespace
 from pathlib import Path
 
-def ler_arquivos(caminho_csv: str, caminho_xlsx: str, sep: str = ';') -> tuple[pd.DataFrame, pd.DataFrame]:
+def ler_arquivos(caminho_csv_kobo: str, caminho_xlsx_variaveis: str, sep: str = ';') -> tuple[pd.DataFrame, pd.DataFrame]:
     """Lê os arquivos de base.
 
     Parâmetros
     ----------
-    caminho_csv : str
+    caminho_csv_kobo : str
         Caminho para o CSV de extração do MRP (resultado do Kobo).
-    caminho_xlsx : str
+    caminho_xlsx_variaveis : str
         Caminho para o XLSX contendo o dicionário com a variável original e a variável atual.
     sep : str, default=';'
         Separador do CSV.
@@ -28,8 +28,8 @@ def ler_arquivos(caminho_csv: str, caminho_xlsx: str, sep: str = ';') -> tuple[p
     (df, df_map) : tuple
         DataFrame principal e DataFrame do dicionário de mapeamento.
     """
-    df = pd.read_csv(caminho_csv, sep=sep)
-    df_map = pd.read_excel(caminho_xlsx)
+    df = pd.read_csv(caminho_csv_kobo, sep=sep)
+    df_map = pd.read_excel(caminho_xlsx_variaveis)
     return df, df_map
 
 def aplicar_mapeamento(df: pd.DataFrame, df_map: pd.DataFrame, coluna_atual: str, coluna_destino: str) -> pd.DataFrame:
@@ -98,13 +98,13 @@ def calcular_indicadores(df_renomeado: pd.DataFrame) -> pd.DataFrame:
         raise RuntimeError("Execução do algoritmo original não produziu um DataFrame 'df'.")
     return ns['df']
 
-def executar(caminho_csv: str, caminho_xlsx: str, coluna_atual: str, coluna_destino: str, sep: str = ';') -> pd.DataFrame:
+def executar(caminho_csv_kobo: str, caminho_xlsx_variaveis: str, coluna_atual: str, coluna_destino: str, sep: str = ';') -> pd.DataFrame:
     """Pipeline completo: lê, aplica mapeamento e calcula indicadores.
 
     Parâmetros
     ----------
-    caminho_csv : str
-    caminho_xlsx : str
+    caminho_csv_kobo : str
+    caminho_xlsx_variaveis : str
     coluna_atual : str
     coluna_destino : str
     sep : str, default=';'
@@ -113,7 +113,7 @@ def executar(caminho_csv: str, caminho_xlsx: str, coluna_atual: str, coluna_dest
     -------
     DataFrame final com indicadores.
     """
-    df, df_map = ler_arquivos(caminho_csv, caminho_xlsx, sep=sep)
+    df, df_map = ler_arquivos(caminho_csv_kobo, caminho_xlsx_variaveis, sep=sep)
     df_renomeado = aplicar_mapeamento(df, df_map, coluna_atual, coluna_destino)
     df_final = calcular_indicadores(df_renomeado)
     return df_final
