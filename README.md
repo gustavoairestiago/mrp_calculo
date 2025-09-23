@@ -8,6 +8,11 @@ Pacote que organiza o código do MRP em funções com nomes em português e um C
 pip install .
 ```
 
+## Instalação (GitHub)
+```bash
+!pip install -q "git+https://github.com/gustavoairestiago/mrp_calculo.git"
+```
+
 ## Uso como biblioteca
 ```python
 from mrp_calculo import executar
@@ -20,6 +25,7 @@ df = executar(
     sep=";",
 )
 df.to_csv("resultado.csv", index=False)
+notas.to_csv("notas.csv",index=False)
 ```
 
 ## Uso via CLI
