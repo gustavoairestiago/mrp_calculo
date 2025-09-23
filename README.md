@@ -1,7 +1,7 @@
 
 # mrp_calculo
 
-Pacote que organiza o código do MRP em funções com nomes em português e um CLI simples.
+Pacote que organiza e calcula notas do MRP.
 
 ## Instalação (local)
 ```bash
@@ -32,6 +32,3 @@ notas.to_csv("notas.csv",index=False)
 ```bash
 python -m mrp_calculo --csv dados.csv --xlsx dicionario.xlsx --col-atual cod_mare --col-origem cod_orig --sep ';' --saida resultado.csv
 ```
-
-> Observação: o cálculo em si é executado a partir do **código original** (mantido em `algoritmo_original.py`)
-com as leituras de arquivo desativadas, de forma que os DataFrames já carregados são usados diretamente.
