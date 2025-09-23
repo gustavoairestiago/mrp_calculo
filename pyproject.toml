@@ -8,7 +8,7 @@ name = "mrp_calculo"
 version = "0.1.0"
 description = "Cálculo dos indicadores do MRP com base no código original fornecido."
 authors = [
-  { name="Seu Nome", email="seu.email@example.com" }
+  { name="Gustavo Aires", email="gustavo.airestiago@un.org" }
 ]
 readme = "README.md"
 requires-python = ">=3.9"
