@@ -1103,4 +1103,5 @@ data_atual = datetime.datetime.now().strftime('%Y%m%d')
 
 df.to_csv(f'{data_atual}_notas_kobo_completa.csv',index=False)
 notas.to_csv(f'{data_atual}_notas_kobo.csv',index=False)
-notas.describe()
+df.to_excel(f'{data_atual}_notas_kobo_completa.xlsx',index=False)
+notas.to_excel(f'{data_atual}_notas_kobo.xlsx',index=False)
