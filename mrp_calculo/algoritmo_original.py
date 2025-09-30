@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-
+import datetime
 """# NOTA PLACAS E CORREIOS
 
 * v010. Há na maioria das esquinas da microárea placas com os nomes dos logradouros?
