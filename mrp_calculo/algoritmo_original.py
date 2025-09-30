@@ -18,15 +18,6 @@ Leitura de dois arquivos:
 - Extração do MRP (Resultado do Kobo)
 - Dicionário com Variável original MRP e Variável Atual MRP
 """
-# 
-df = pd.read_csv("/content/Questionário_do_Mapa_Rápido_Participativo_para_Complexo_da_Maré_RJ_-_all_versions_-_False_-_2025-09-22-20-33-50.csv",sep=";")
-# 
-df_map  = pd.read_excel("/content/20250722_questionario_mrp.xlsx")
-
-"""### Mudança de variáveis da extração do Kobo para colunas originais do MRP"""
-
-col_atual = "cod_mare"
-col_destino = "cod_orig"
 
 for c in (col_atual, col_destino):
     if c not in df_map.columns:
